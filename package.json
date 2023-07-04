@@ -9,9 +9,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.47"
+    "@element-plus/icons-vue": "^2.1.0",
+    "@types/jsrsasign": "^10.5.8",
+    "axios": "^1.4.0",
+    "element-plus": "^2.3.7",
+    "jsrsasign": "^10.8.6",
+    "sass": "^1.63.6",
+    "unplugin-auto-import": "^0.16.4",
+    "unplugin-vue-components": "^0.25.1",
+    "vue": "^3.2.47",
+    "vue-router": "4"
   },
   "devDependencies": {
+    "@types/node": "^20.3.3",
     "@vitejs/plugin-vue": "^4.1.0",
     "typescript": "^5.0.2",
     "vite": "^4.3.9",
