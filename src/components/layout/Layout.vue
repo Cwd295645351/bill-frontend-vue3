@@ -7,7 +7,7 @@
           {{ item.label }}
         </div>
       </div>
-      <el-popover class="avatar-container" placement="bottom-end" width="240" popper-class="bill-information" trigger="click">
+      <el-popover placement="bottom-end" width="240" popper-class="bill-information" trigger="click">
         <div class="name-line">
           <div class="avatar" :style="{ 'background-image': avatarUrl }"></div>
           <div class="nick-name">{{ userInfo.nickName }}</div>
@@ -24,20 +24,24 @@
         </div>
         <div class="updateInfo" @click="showJoinBillDialog">加入账本</div>
         <div class="logout" @click="logout">退出登录</div>
-        <div class="avatar" slot="reference" :style="{ 'background-image': avatarUrl }"></div>
+        <template #reference>
+          <div class="avatar" :style="{ 'background-image': avatarUrl }"></div>
+        </template>
       </el-popover>
     </header>
     <router-view></router-view>
-    <el-dialog title="加入账本" custom-class="join-bill-dialog" :visible.sync="joinBillDialog">
+    <el-dialog title="加入账本" custom-class="join-bill-dialog" v-model="joinBillDialog">
       <el-form ref="$joinForm" :model="form" :rules="rules">
         <el-form-item label="分享码" label-width="70px" prop="name" style="margin-bottom: 0">
           <el-input v-model="form.name" autocomplete="off"></el-input>
         </el-form-item>
       </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button size="small" :loading="dialogLoading" type="primary" @click="join">确定</el-button>
-        <el-button size="small" :disabled="dialogLoading" @click="joinBillDialog = false">取消</el-button>
-      </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button size="small" :loading="dialogLoading" type="primary" @click="join">确定</el-button>
+          <el-button size="small" :disabled="dialogLoading" @click="joinBillDialog = false">取消</el-button>
+        </div>
+      </template>
     </el-dialog>
   </div>
 </template>
@@ -108,19 +112,15 @@ const rules = {
         }
       }
     }
-    .avatar-container {
+    .avatar {
       position: absolute;
       right: 20px;
       width: 50px;
       height: 50px;
-      .avatar {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        background-size: cover;
-        cursor: pointer;
-        box-shadow: 0 0 5px #ddd;
-      }
+      border-radius: 50%;
+      background-size: cover;
+      cursor: pointer;
+      box-shadow: 0 0 5px #ddd;
     }
   }
 }

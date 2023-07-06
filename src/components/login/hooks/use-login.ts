@@ -60,7 +60,7 @@ export const useLogin = () => {
           }
           sessionStorage.setItem('expiresAt', expiresAt.toString())
           sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
-          router.push('/layout/bills')
+          router.push('/layout/bill')
         } else {
           ElMessage.error('登录失败，' + res.message)
         }

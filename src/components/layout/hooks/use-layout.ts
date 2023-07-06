@@ -22,7 +22,7 @@ export const useLayout = () => {
   /** 当前菜单 */
   const currentMenu = ref('bills')
   /** 账本菜单 */
-  const billsMenu: Menu[] = [{ label: '账本', value: 'bills', route: '/layout/bills' }]
+  const billsMenu: Menu[] = [{ label: '账本', value: 'bills', route: '/layout/bill' }]
   const recordMenu: Menu[] = [
     { label: '记账', value: 'record', route: '/layout/record' },
     { label: '概览', value: 'overview', route: '/layout/overview' },
@@ -64,11 +64,11 @@ export const useLayout = () => {
 
   /** 返回账本页 */
   const backToBills = () => {
-    if (router.currentRoute.value.path === '/layout/bills') return
+    if (router.currentRoute.value.path === '/layout/bill') return
     store.updateState({ key: 'billId', value: '' })
     sessionStorage.setItem('billId', '')
     sessionStorage.setItem('tabValue', 'bills')
-    router.push('/layout/bills')
+    router.push('/layout/bill')
   }
 
   /** 退出登录 */
@@ -110,7 +110,7 @@ export const useLayout = () => {
   }
 
   onMounted(() => {
-    init()
+    // init()
   })
 
   return { $joinForm, joinBillDialog, dialogLoading, form, currentMenu, menus, avatarUrl, userInfo, changeMenu, backToBills, logout, showJoinBillDialog, join }

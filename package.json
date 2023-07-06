@@ -12,6 +12,8 @@
     "@element-plus/icons-vue": "^2.1.0",
     "@types/jsrsasign": "^10.5.8",
     "axios": "^1.4.0",
+    "dayjs": "^1.11.9",
+    "echarts": "^5.4.2",
     "element-plus": "^2.3.7",
     "jsrsasign": "^10.8.6",
     "pinia": "^2.1.3",

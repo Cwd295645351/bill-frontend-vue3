@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, reactive, Ref } from 'vue'
+import type { Bill } from '@/types/bill'
 
 const refObjects = reactive<{ [key: string]: Ref<any> }>({})
 
@@ -7,7 +8,7 @@ export const useBillStore = defineStore('bill', () => {
   /** 当前账本id */
   const billId = ref<string | null>(null)
   /** 当前账本 */
-  const bill = ref<Record<string, any> | null>(null)
+  const bill = ref<Bill | null>(null)
   /** 当前账本是否更新 */
   const updateBill = ref(false)
 
@@ -31,7 +32,7 @@ export const useBillStore = defineStore('bill', () => {
     if (refObjects.hasOwnProperty(key)) {
       const refObj = refObjects[key]
       // Check if the refObj is a Ref object
-      if (typeof refObj.value !== 'undefined') {
+      if (typeof refObj?.value !== 'undefined' && typeof refObj?.value !== null) {
         refObj.value = value
       } else {
         // If refObj is not a Ref object, directly assign the value
