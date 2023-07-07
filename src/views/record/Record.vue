@@ -46,7 +46,7 @@
             <el-input v-model="searchOptions.remark" placeholder="请输入"></el-input>
           </el-form-item>
           <el-form-item class="form-item" size="mini">
-            <el-button @click="search">查询</el-button>
+            <el-button @click="serachAll">查询</el-button>
             <el-button @click="exportExcel">导出</el-button>
             <el-button v-show="!showAdd" @click="changeAddContainer">新增</el-button>
           </el-form-item>
@@ -159,10 +159,12 @@
     </div>
     <el-dialog title="您确定要删除吗？" custom-class="delete-transaction-dialog" :visible.sync="deleteDialog">
       <div style="color: #999">删除后数据将无法恢复</div>
-      <div slot="footer" class="dialog-footer">
-        <el-button size="small" :loading="btnLoading" type="primary" @click="submitDeleteTransaction">确定</el-button>
-        <el-button size="small" :disabled="btnLoading" @click="deleteDialog = false">取消</el-button>
-      </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button size="small" :loading="btnLoading" type="primary" @click="submitDeleteTransaction">确定</el-button>
+          <el-button size="small" :disabled="btnLoading" @click="deleteDialog = false">取消</el-button>
+        </div>
+      </template>
     </el-dialog>
     <el-dialog title="编辑明细" custom-class="edit-transaction-dialog" :visible.sync="editDialog">
       <el-form v-if="editDialog" class="form-container" label-width="70px">
@@ -206,10 +208,12 @@
           <el-input v-model="operateData.remark" placeholder="请输入"></el-input>
         </el-form-item>
       </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button size="small" :loading="btnLoading" type="primary" @click="submitEditTransaction">确定</el-button>
-        <el-button size="small" :disabled="btnLoading" @click="editDialog = false">取消</el-button>
-      </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button size="small" :loading="btnLoading" type="primary" @click="submitEditTransaction">确定</el-button>
+          <el-button size="small" :disabled="btnLoading" @click="editDialog = false">取消</el-button>
+        </div>
+      </template>
     </el-dialog>
   </div>
 </template>
@@ -254,6 +258,11 @@ const {
   addInfo,
   changeAddContainer,
 } = useAddEdit({ getCost, search, type })
+
+const serachAll = () => {
+  search()
+  getCost()
+}
 </script>
 
 <style scoped lang="scss">

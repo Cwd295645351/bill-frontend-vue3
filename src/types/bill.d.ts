@@ -72,14 +72,21 @@ export interface Budget {
   /** 当前已支出金额 */
   currCost: number
   /** 明细 */
-  details: {
-    /** 支出类型id */
-    costTypeId: string
-    /** 支出类型名称 */
-    costTypeName: string
-    /** 预算金额 */
-    budget: number
-    /**  当前已支出金额(在增删修改账本时顺便对cost进行修改) */
-    cost: number
-  }[]
+  details: BudgetDetail[]
+}
+
+/** 预算明细 */
+export interface BudgetDetail {
+  /** 预算明细id */
+  _id?: string
+  /** 支出类型id */
+  costTypeId: string
+  /** 支出类型名称 */
+  costTypeName: string
+  /** 预算金额 */
+  budget: number
+  /**  当前已支出金额(在增删修改账本时顺便对cost进行修改) */
+  cost: number
+  /** 当前支出进度 */
+  costPercent?: number
 }
