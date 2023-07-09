@@ -65,9 +65,13 @@ export const useBudget = () => {
     ],
   })
 
-  watch(bill, (bill) => {
-    costTypes.value = (bill as Bill).costTypes
-  })
+  watch(
+    bill,
+    (val) => {
+      costTypes.value = (val as Bill).costTypes
+    },
+    { immediate: true },
+  )
 
   /** 预算背景颜色 */
   const costColor = (item: BudgetDetail) => {

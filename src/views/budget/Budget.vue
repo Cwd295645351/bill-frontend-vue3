@@ -11,15 +11,15 @@
       <div class="add-data-container">
         <div class="title">新增预算</div>
         <el-form :model="addInformation" ref="$addForm" :rules="rules" class="form-container" labelPosition="top">
-          <el-form-item prop="costTypeId" required size="mini" label="支出类型">
+          <el-form-item prop="costTypeId" required size="small" label="支出类型">
             <el-select style="width: 100%" v-model="addInformation.costTypeId" filterable placeholder="请选择" clearable>
               <el-option v-for="(item, index) in costTypes" :key="item + '_' + index" :label="item.name" :value="item.id"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item prop="money" required size="mini" label="金额">
+          <el-form-item prop="money" required size="small" label="金额">
             <el-input v-model="addInformation.money" clearable placeholder="请输入"></el-input>
           </el-form-item>
-          <el-form-item class="form-item" size="mini">
+          <el-form-item class="form-item" size="small">
             <el-button type="primary" :disabled="btnLoading" @click="addBudget">保存</el-button>
           </el-form-item>
         </el-form>
@@ -41,29 +41,29 @@
           ></div>
         </div>
         <div class="operate">
-          <el-button size="mini" type="primary" icon="el-icon-edit" circle @click="showEdit(item)"></el-button>
-          <el-button size="mini" type="danger" icon="el-icon-delete" circle @click="showDelete(item)"></el-button>
+          <el-button size="small" type="primary" :icon="Edit" circle @click="showEdit(item)"></el-button>
+          <el-button size="small" type="danger" :icon="Delete" circle @click="showDelete(item)"></el-button>
         </div>
       </div>
       <!-- 编辑预算弹窗 -->
-      <el-dialog title="编辑预算" custom-class="edit-budget-dialog" :visible.sync="editDialog">
+      <el-dialog title="编辑预算" class="edit-budget-dialog" v-model="editDialog">
         <el-form :model="editBudgetObj" ref="$editForm" :rules="rules" class="form-container" labelPosition="top">
-          <el-form-item prop="costTypeId" required size="mini" label="支出类型">
+          <el-form-item prop="costTypeId" required size="small" label="支出类型">
             <el-select style="width: 100%" disabled v-model="editBudgetObj.costTypeId" filterable placeholder="请选择" clearable>
               <el-option v-for="(item, index) in costTypes" :key="item + '_' + index" :label="item.name" :value="item.id"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item prop="budget" required size="mini" label="金额">
+          <el-form-item prop="budget" required size="small" label="金额">
             <el-input v-model="editBudgetObj.budget" clearable placeholder="请输入"></el-input>
           </el-form-item>
-          <el-form-item class="form-item" size="mini">
+          <el-form-item class="form-item" size="small">
             <el-button type="primary" :disabled="btnLoading" @click="submitEditBudget">保存</el-button>
             <el-button size="small" :disabled="btnLoading" @click="editDialog = false">取消</el-button>
           </el-form-item>
         </el-form>
       </el-dialog>
       <!-- 删除弹窗 -->
-      <el-dialog title="您确定要删除吗？" custom-class="delete-budget-dialog" :visible.sync="deleteDialog">
+      <el-dialog title="您确定要删除吗？" class="delete-budget-dialog" v-model="deleteDialog">
         <div style="color: #999">删除后数据将无法恢复</div>
         <template #footer>
           <div class="dialog-footer">
@@ -77,8 +77,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useBudget } from './hooks/use-budget'
+import { Delete, Edit } from '@element-plus/icons-vue'
 
 const {
   $addForm,
@@ -240,7 +240,9 @@ const rules = {
 .edit-budget-dialog {
   width: 400px;
   .form-item {
-    text-align: center;
+    .el-form-item__content {
+      justify-content: center;
+    }
   }
 }
 </style>

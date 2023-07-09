@@ -64,8 +64,8 @@ export const useTypeChart = (options: { colorOptions: string[] }) => {
 
   const initChart = () => {
     belongTypeChart1.value = echarts.init(document.getElementById('belongTypeChart1') as HTMLElement)
-    belongTypeChart2.value = echarts.init(document.getElementById('belongTypeChart1') as HTMLElement)
-    belongTypeChart3.value = echarts.init(document.getElementById('belongTypeChart1') as HTMLElement)
+    belongTypeChart2.value = echarts.init(document.getElementById('belongTypeChart2') as HTMLElement)
+    belongTypeChart3.value = echarts.init(document.getElementById('belongTypeChart3') as HTMLElement)
     belongOptions.value.color = colorOptions
   }
 
@@ -208,5 +208,5 @@ export const useTypeChart = (options: { colorOptions: string[] }) => {
     }
   })
 
-  return { belongCondition, belongUsers,  getBalanceAndPieData }
+  return { belongCondition, belongUsers, getBalanceAndPieData }
 }

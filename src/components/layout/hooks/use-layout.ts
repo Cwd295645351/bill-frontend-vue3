@@ -110,7 +110,7 @@ export const useLayout = () => {
   }
 
   onMounted(() => {
-    // init()
+    init()
   })
 
   return { $joinForm, joinBillDialog, dialogLoading, form, currentMenu, menus, avatarUrl, userInfo, changeMenu, backToBills, logout, showJoinBillDialog, join }

@@ -17,7 +17,7 @@ export const useBill = () => {
   const deleteBillDialog = ref(false)
   const shareBillDialog = ref(false)
   const dialogLoading = ref(false)
-  const bills = ref<Bill[]>([{ id: '', _id: '', name: '', creator: '' }])
+  const bills = ref<Bill[]>([])
   const form = ref({ name: '' })
   const currentOperateBill = ref<Bill>({ id: '', _id: '', name: '', creator: '' })
   const shareCode = ref('') // 分享码
@@ -117,6 +117,9 @@ export const useBill = () => {
       ElMessage.error('生成分享码失败，' + res.message)
     }
   }
+
+  onMounted(init)
+
   return {
     $addForm,
     addBillDialog,

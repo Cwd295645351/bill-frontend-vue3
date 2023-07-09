@@ -12,40 +12,40 @@
       <div class="content">
         <!-- 查询交易 -->
         <el-form :inline="true">
-          <el-form-item class="form-item width-150" size="mini" label="日期">
+          <el-form-item class="form-item width-150" size="small" label="日期">
             <el-date-picker v-model="searchOptions.beginDate" value-format="yyyy-MM-dd" type="date" placeholder="请选择" clearable></el-date-picker>~
             <el-date-picker v-model="searchOptions.endDate" value-format="yyyy-MM-dd" type="date" placeholder="请选择" clearable></el-date-picker>
           </el-form-item>
-          <el-form-item class="form-item width-150" size="mini" label="记账人">
+          <el-form-item class="form-item width-150" size="small" label="记账人">
             <el-select v-model="searchOptions.userId" filterable placeholder="请选择" clearable>
               <el-option v-for="(item, index) in users" :key="item + '_' + index" :label="item.name" :value="item.id"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item class="form-item width-150" v-show="type === 1" size="mini" label="支出类型">
+          <el-form-item class="form-item width-150" v-show="type === 1" size="small" label="支出类型">
             <el-select v-model="searchOptions.costTypeId" filterable placeholder="请选择" clearable>
               <el-option v-for="(item, index) in costTypes" :key="item + '_' + index" :label="item.name" :value="item.id"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item class="form-item width-150" v-show="type === 1" size="mini" label="支付方式">
+          <el-form-item class="form-item width-150" v-show="type === 1" size="small" label="支付方式">
             <el-select v-model="searchOptions.payMethodId" filterable placeholder="请选择" clearable>
               <el-option v-for="(item, index) in payMethods" :key="item + '_' + index" :label="item.name" :value="item.id"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item class="form-item width-150" size="mini" label="归属人">
+          <el-form-item class="form-item width-150" size="small" label="归属人">
             <el-select v-model="searchOptions.belongUserId" filterable placeholder="请选择" clearable>
               <el-option label="全部" value=""></el-option>
               <el-option v-for="(item, index) in users" :key="item + '_' + index" :label="item.name" :value="item.id"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item class="form-item width-150" v-show="type === 2" size="mini" label="收入类型">
+          <el-form-item class="form-item width-150" v-show="type === 2" size="small" label="收入类型">
             <el-select v-model="searchOptions.incomesTypeId" filterable placeholder="请选择" clearable>
               <el-option v-for="(item, index) in incomesTypes" :key="item + '_' + index" :label="item.name" :value="item.id"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item class="form-item width-150" size="mini" label="内容">
+          <el-form-item class="form-item width-150" size="small" label="内容">
             <el-input v-model="searchOptions.remark" placeholder="请输入"></el-input>
           </el-form-item>
-          <el-form-item class="form-item" size="mini">
+          <el-form-item class="form-item" size="small">
             <el-button @click="serachAll">查询</el-button>
             <el-button @click="exportExcel">导出</el-button>
             <el-button v-show="!showAdd" @click="changeAddContainer">新增</el-button>
@@ -54,32 +54,32 @@
         <!-- 新增交易 -->
         <div class="add-data" v-show="showAdd">
           <el-form class="form-container" :inline="true">
-            <el-form-item class="form-item width-125" size="mini" label="日期">
+            <el-form-item class="form-item width-125" size="small" label="日期">
               <el-date-picker v-model="addInformation.date" type="date" placeholder="请选择" clearable></el-date-picker>
             </el-form-item>
-            <el-form-item class="form-item width-125" v-show="type === 1" size="mini" label="支出类型">
+            <el-form-item class="form-item width-125" v-show="type === 1" size="small" label="支出类型">
               <el-select filterable v-model="addInformation.costTypeId" placeholder="请选择" clearable>
                 <el-option v-for="(item, index) in costTypes" :key="item + '_' + index" :label="item.name" :value="item.id"></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item class="form-item width-125" size="mini" label="内容">
+            <el-form-item class="form-item width-125" size="small" label="内容">
               <el-input v-model="addInformation.remark" clearable placeholder="请输入"></el-input>
             </el-form-item>
-            <el-form-item class="form-item width-125" size="mini" label="金额">
+            <el-form-item class="form-item width-125" size="small" label="金额">
               <el-input v-model="addInformation.money" clearable placeholder="请输入"></el-input>
             </el-form-item>
-            <el-form-item class="form-item width-125" size="mini" label="归属人">
+            <el-form-item class="form-item width-125" size="small" label="归属人">
               <el-select v-model="addInformation.belongUserId" filterable placeholder="请选择" clearable>
                 <el-option label="全部" value=""></el-option>
                 <el-option v-for="(item, index) in users" :key="item + '_' + index" :label="item.name" :value="item.id"></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item class="form-item width-125" v-show="type === 1" size="mini" label="支付方式">
+            <el-form-item class="form-item width-125" v-show="type === 1" size="small" label="支付方式">
               <el-select v-model="addInformation.payMethodId" filterable placeholder="请选择" clearable>
                 <el-option v-for="(item, index) in payMethods" :key="item + '_' + index" :label="item.name" :value="item.id"></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item class="form-item" v-show="type === 1" size="mini" label="报销进度">
+            <el-form-item class="form-item" v-show="type === 1" size="small" label="报销进度">
               <el-radio-group v-model="addInformation.reimbursement">
                 <el-radio :label="0">无需报销</el-radio>
                 <el-radio :label="1">待报销</el-radio>
@@ -87,12 +87,12 @@
                 <el-radio :label="3">已报销</el-radio>
               </el-radio-group>
             </el-form-item>
-            <el-form-item class="form-item width-125" v-show="type === 2" size="mini" label="收入类型">
+            <el-form-item class="form-item width-125" v-show="type === 2" size="small" label="收入类型">
               <el-select v-model="addInformation.incomesTypeId" filterable placeholder="请选择" clearable>
                 <el-option v-for="(item, index) in incomesTypes" :key="item + '_' + index" :label="item.name" :value="item.id"></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item class="form-item" size="mini">
+            <el-form-item class="form-item" size="small">
               <el-button :disabled="saveLoading" @click="addInfo">保存</el-button>
               <el-button @click="changeAddContainer">取消</el-button>
             </el-form-item>
@@ -157,7 +157,7 @@
         <div v-show="noMore" class="tips-label">没有更多了</div>
       </div>
     </div>
-    <el-dialog title="您确定要删除吗？" custom-class="delete-transaction-dialog" :visible.sync="deleteDialog">
+    <el-dialog title="您确定要删除吗？" class="delete-transaction-dialog" v-model="deleteDialog">
       <div style="color: #999">删除后数据将无法恢复</div>
       <template #footer>
         <div class="dialog-footer">
@@ -166,31 +166,31 @@
         </div>
       </template>
     </el-dialog>
-    <el-dialog title="编辑明细" custom-class="edit-transaction-dialog" :visible.sync="editDialog">
+    <el-dialog title="编辑明细" class="edit-transaction-dialog" v-model="editDialog">
       <el-form v-if="editDialog" class="form-container" label-width="70px">
-        <el-form-item class="form-item" size="mini" label="日期">
+        <el-form-item class="form-item" size="small" label="日期">
           <el-date-picker v-model="operateData.date" type="date" placeholder="请选择" clearable></el-date-picker>
         </el-form-item>
-        <el-form-item class="form-item" v-show="type === 1" size="mini" label="支出类型">
+        <el-form-item class="form-item" v-show="type === 1" size="small" label="支出类型">
           <el-select v-model="operateData.costTypeId" filterable placeholder="请选择" clearable>
             <el-option v-for="(item, index) in costTypes" :key="item + '_' + index" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item class="form-item" v-show="type === 1" size="mini" label="支付方式">
+        <el-form-item class="form-item" v-show="type === 1" size="small" label="支付方式">
           <el-select v-model="operateData.payMethodId" filterable placeholder="请选择" clearable>
             <el-option v-for="(item, index) in payMethods" :key="item + '_' + index" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item class="form-item" size="mini" label="归属人">
+        <el-form-item class="form-item" size="small" label="归属人">
           <el-select v-model="operateData.belongUserId" filterable placeholder="请选择" clearable>
             <el-option label="全部" value=""></el-option>
             <el-option v-for="(item, index) in users" :key="item + '_' + index" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item class="form-item" size="mini" label="金额">
+        <el-form-item class="form-item" size="small" label="金额">
           <el-input v-model="operateData.money" placeholder="请输入"></el-input>
         </el-form-item>
-        <el-form-item class="form-item" v-show="type === 1" size="mini" label="报销进度">
+        <el-form-item class="form-item" v-show="type === 1" size="small" label="报销进度">
           <el-radio-group v-model="operateData.reimbursement">
             <el-radio :label="0">无需报销</el-radio>
             <el-radio :label="1">待报销</el-radio>
@@ -198,13 +198,13 @@
             <el-radio :label="3">已报销</el-radio>
           </el-radio-group>
         </el-form-item>
-        <el-form-item class="form-item" v-show="type === 2" size="mini" label="收入类型">
+        <el-form-item class="form-item" v-show="type === 2" size="small" label="收入类型">
           <el-select v-model="operateData.incomesTypeId" filterable placeholder="请选择" clearable>
             <el-option v-for="(item, index) in incomesTypes" :key="item + '_' + index" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </el-form-item>
 
-        <el-form-item class="form-item" size="mini" label="内容">
+        <el-form-item class="form-item" size="small" label="内容">
           <el-input v-model="operateData.remark" placeholder="请输入"></el-input>
         </el-form-item>
       </el-form>
@@ -477,6 +477,9 @@ const serachAll = () => {
               }
               .operate {
                 margin-left: 40px;
+                .el-link +.el-link  {
+                  margin-left: 5px;
+                }
               }
             }
             & + .detail-item {
@@ -518,17 +521,23 @@ const serachAll = () => {
 </style>
 <style lang="scss">
 .record {
+  .el-form-item__label {
+    font-size: 14px;
+  }
+  .el-form--inline .el-form-item {
+    margin-right: 10px;
+  }
   .width-125 {
     .el-date-editor,
     .el-input,
-    .el-input__inner {
+    .el-input__wrapper {
       width: 125px;
     }
   }
   .width-150 {
     .el-date-editor,
     .el-input,
-    .el-input__inner {
+    .el-input__wrapper {
       width: 150px;
     }
   }
@@ -544,7 +553,7 @@ const serachAll = () => {
   .form-item {
     .el-date-editor,
     .el-input,
-    .el-input__inner {
+    .el-input__wrapper {
       width: 320px;
     }
   }

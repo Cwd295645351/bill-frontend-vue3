@@ -27,6 +27,9 @@ export default defineConfig({
       '@': pathResolve('./src'),
     },
   },
+  css: {
+    postcss: pathResolve('./postcss.config.js'),
+  },
   base: './', // 设置公共基础路径
   server: {
     port: 4000, // 设置服务启动端口号

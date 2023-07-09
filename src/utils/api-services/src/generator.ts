@@ -5,11 +5,6 @@ import { AxiosResponse } from 'axios'
 
 import type { ConfigFn } from '../type'
 
-/** 成功回调 */
-const onSuccess = (response: AxiosResponse) => {
-  const res = [null, response.data || response]
-  return res
-}
 
 /** 失败回调 */
 const onError = (error: any) => {
@@ -42,7 +37,6 @@ const onError = (error: any) => {
 const generator = (url: string, customConfig?: ConfigFn) => {
   return curringHttp(axiosInstance, (config) => {
     config.baseURL = config.baseURL + url
-    config.onSuccess = onSuccess
     config.onError = onError
     return customConfig?.(config) || config
   })

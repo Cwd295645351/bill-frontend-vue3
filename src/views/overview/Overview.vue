@@ -18,10 +18,10 @@
       <div class="add-data-container">
         <el-form :model="belongCondition" ref="form" class="form-container" labelPosition="top">
           <el-form-item prop="startDate" required size="small" label="开始时间">
-            <el-date-picker style="width: 100%" v-model="belongCondition.startDate" value-format="yyyy-MM-dd" type="date" placeholder="开始时间"> </el-date-picker>
+            <el-date-picker style="width: 100%" v-model="belongCondition.startDate" value-format="YYYY-MM-DD" type="date" placeholder="开始时间"> </el-date-picker>
           </el-form-item>
           <el-form-item prop="endDate" required size="small" label="结束时间">
-            <el-date-picker style="width: 100%" v-model="belongCondition.endDate" value-format="yyyy-MM-dd" type="date" placeholder="结束时间"> </el-date-picker>
+            <el-date-picker style="width: 100%" v-model="belongCondition.endDate" value-format="YYYY-MM-DD" type="date" placeholder="结束时间"> </el-date-picker>
           </el-form-item>
           <el-form-item prop="proportion" required size="small" :label="'比例（宜：栋）==>' + belongCondition.money">
             <el-input v-model="belongCondition.proportion" placeholder="比例（宜：栋）"></el-input>
@@ -123,7 +123,9 @@ const { belongCondition, belongUsers, getBalanceAndPieData } = useTypeChart({ co
       height: 320px;
       border-top: 1px solid #ddd;
       .form-item {
-        text-align: center;
+        .el-form-item__content {
+          justify-content: center;
+        }
       }
     }
   }

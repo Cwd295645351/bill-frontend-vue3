@@ -9,7 +9,7 @@
       {{ item.name }}
     </div>
     <div class="bill add-bill" @click="showBillDialog">+</div>
-    <el-dialog title="新增账本" custom-class="add-bill-dialog" v-model="addBillDialog">
+    <el-dialog title="新增账本" class="add-bill-dialog" v-model="addBillDialog">
       <el-form ref="$addForm" :model="form" :rules="rules">
         <el-form-item label="账本名称" label-width="100px" prop="name" style="margin-bottom: 0">
           <el-input v-model="form.name" autocomplete="off"></el-input>
@@ -22,7 +22,7 @@
         </div>
       </template>
     </el-dialog>
-    <el-dialog title="您确定要删除吗？" custom-class="delete-bill-dialog" v-model="deleteBillDialog">
+    <el-dialog title="您确定要删除吗？" class="delete-bill-dialog" v-model="deleteBillDialog">
       <div style="color: #999">删除后账本相关数据将无法恢复</div>
       <template #footer>
         <div class="dialog-footer">
@@ -31,8 +31,8 @@
         </div>
       </template>
     </el-dialog>
-    <el-dialog title="分享码已生成，时长为30分钟" custom-class="delete-bill-dialog" v-model="shareBillDialog">
-      <div style="color: #999">分享码：{{ shareCode }}</div>
+    <el-dialog title="分享码已生成，时长为30分钟" class="delete-bill-dialog" v-model="shareBillDialog">
+      <div style="color: #999; word-wrap: break-word">分享码：{{ shareCode }}</div>
       <template #footer>
         <div class="dialog-footer">
           <el-button size="small" type="primary" @click="shareBillDialog = false">确定</el-button>

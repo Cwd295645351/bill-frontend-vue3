@@ -30,9 +30,9 @@
       </el-popover>
     </header>
     <router-view></router-view>
-    <el-dialog title="加入账本" custom-class="join-bill-dialog" v-model="joinBillDialog">
+    <el-dialog title="加入账本" class="join-bill-dialog" v-model="joinBillDialog">
       <el-form ref="$joinForm" :model="form" :rules="rules">
-        <el-form-item label="分享码" label-width="70px" prop="name" style="margin-bottom: 0">
+        <el-form-item label="分享码" label-width="80px" prop="name" style="margin-bottom: 0">
           <el-input v-model="form.name" autocomplete="off"></el-input>
         </el-form-item>
       </el-form>

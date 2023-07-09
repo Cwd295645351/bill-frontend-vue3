@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
 import loginRoute from '@/components/login/router'
-import layoutRoute from '@/components/layout/router.js'
+import layoutRoute from '@/components/layout/router'
 
 const routes: Array<RouteRecordRaw> = [{ path: '/', redirect: '/login' }]
 

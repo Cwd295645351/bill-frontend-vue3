@@ -81,7 +81,7 @@ export const useRecord = () => {
   /** 初始化 */
   const initData = (bill: Bill) => {
     users.value = bill.users
-    costTypes.value = bill.users
+    costTypes.value = bill.costTypes
     incomesTypes.value = bill.incomesTypes
     payMethods.value = bill.payMethods
 
