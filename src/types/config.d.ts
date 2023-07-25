@@ -4,4 +4,6 @@ export interface Config {
   baseURL: string
   /** token */
   token?: string
+  /** 版本 */
+  version?: string
 }

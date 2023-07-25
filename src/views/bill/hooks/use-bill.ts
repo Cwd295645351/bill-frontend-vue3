@@ -91,9 +91,9 @@ export const useBill = () => {
 
   /** 删除账本 */
   const delBill = async () => {
-    const data = { id: currentOperateBill.value.id }
+    const params = { id: currentOperateBill.value.id }
     dialogLoading.value = true
-    const [err, res] = await deleteBill({ data })
+    const [err, res] = await deleteBill({ params })
     dialogLoading.value = false
     deleteBillDialog.value = false
     if (err) return

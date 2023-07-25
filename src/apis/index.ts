@@ -1,10 +1,13 @@
 import axios from "axios"
 import { getConfig } from "@/utils/config"
 
-const REFRESHING_TOKEN = "/api/common/refreshToken" // 刷新token
-const LOGOUT = "/api/common/logout" // 退出登录
-
 const config = getConfig()
+
+const version = config.version
+
+const REFRESHING_TOKEN = `/api/${version}/common/refreshToken` // 刷新token
+const LOGOUT = `/api/${version}/common/logout` // 退出登录
+
 
 const instance = axios.create({
 	baseURL: config.baseURL
@@ -12,7 +15,7 @@ const instance = axios.create({
 
 // 刷新token
 export const refreshToken = (refreshToken: string) => {
-	return instance.post(REFRESHING_TOKEN, { refreshToken })
+	return instance.put(REFRESHING_TOKEN, { refreshToken })
 }
 
 // 退出登录
