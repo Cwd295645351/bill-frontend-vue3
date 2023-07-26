@@ -167,9 +167,9 @@ export const useBudget = () => {
 
   /** 删除预算 */
   const submitDeleteBudget = async () => {
-    const data = { date: year.value, billId: billId.value, id: deleteObj.value._id }
+    const params = { date: year.value, billId: billId.value, id: deleteObj.value._id }
     btnLoading.value = true
-    const [err, res] = await budgetDelete({ data })
+    const [err, res] = await budgetDelete({ params })
     btnLoading.value = false
     if (err) return
     deleteDialog.value = false

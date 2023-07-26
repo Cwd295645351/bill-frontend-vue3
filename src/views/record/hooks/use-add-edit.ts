@@ -60,9 +60,9 @@ export const useAddEdit = (options: { getCost: () => void; search: () => void; t
 
   /** 删除交易明细 */
   const submitDeleteTransaction = async () => {
-    const data = { id: operateData.value._id }
+    const params = { id: operateData.value._id }
     btnLoading.value = true
-    const [err, res] = await deleteTransaction({ data })
+    const [err, res] = await deleteTransaction({ params })
     btnLoading.value = false
     deleteDialog.value = false
     if (err) return
