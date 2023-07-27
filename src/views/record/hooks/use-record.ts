@@ -98,7 +98,7 @@ export const useRecord = () => {
       belongUserId: options.belongUserId,
       pageIndex: pageContent.value.pageIndex,
       pageSize: pageContent.value.pageSize,
-      type: type,
+      type: type.value,
       costTypeId: options.costTypeId,
       payMethodId: options.payMethodId,
       incomesTypeId: options.incomesTypeId,
