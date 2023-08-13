@@ -32,6 +32,7 @@ export default defineConfig({
   },
   base: './', // 设置公共基础路径
   server: {
+    host: '0.0.0.0',
     port: 4000, // 设置服务启动端口号
     open: true, // 设置服务启动时是否自动打开浏览器
     cors: true, // 允许跨域
